@@ -17,14 +17,12 @@ const Logs_Table = ({ logs, setSelectedRobot, robots, selectedRobot }) => {
         { label: 'Log Type', key: 'logType' },
         { label: 'Status', key: 'status' },
         { label: 'Timestamp', key: 'timestamp' },
-        { label: 'Message', key: 'message' },
     ];
 
-    const csvData = logs.map(({ logType, status, timestamp, message }) => ({
+    const csvData = logs.map(({ logType, status, timestamp }) => ({
         logType,
         status,
         timestamp,
-        message,
     }));
 
     const handleSearchTermChange = (event) => {
@@ -44,8 +42,6 @@ const Logs_Table = ({ logs, setSelectedRobot, robots, selectedRobot }) => {
                 return log.status.toLowerCase().includes(searchTermLowerCase);
             case 'timestamp':
                 return log.timestamp.toLowerCase().includes(searchTermLowerCase);
-            case 'message':
-                return log.message.toLowerCase().includes(searchTermLowerCase);
             default:
                 return log.name.toLowerCase().includes(searchTermLowerCase);
         }
@@ -91,7 +87,6 @@ const Logs_Table = ({ logs, setSelectedRobot, robots, selectedRobot }) => {
                                 <MenuItem value="name">Name</MenuItem>
                                 <MenuItem value="status">Status</MenuItem>
                                 <MenuItem value="timestamp">Timestamp</MenuItem>
-                                <MenuItem value="message">Message</MenuItem>
                             </TextField>
                         </div>
                         <TextField
@@ -121,7 +116,6 @@ const Logs_Table = ({ logs, setSelectedRobot, robots, selectedRobot }) => {
                                 <th className="py-3 px-6 text-center">Name</th>
                                 <th className="py-3 px-6 text-center">Status</th>
                                 <th className="py-3 px-6 text-center">Timestamp</th>
-                                <th className="py-3 px-6 text-center">Message</th>
                             </tr>
                         </thead>
 
@@ -138,10 +132,10 @@ const Logs_Table = ({ logs, setSelectedRobot, robots, selectedRobot }) => {
                                                     <span className="text-yellow-500 font-bold text-center">Running</span>
                                                 </div>
                                             )}
-                                            {log.status === 'Completed' && (
+                                            {log.status === 'Executed' && (
                                                 <div className="flex items-center justify-center">
                                                     <FaCheckCircle size={16} className="text-green-500 mr-2" />
-                                                    <span className="text-green-500 font-bold text-center">Completed</span>
+                                                    <span className="text-green-500 font-bold text-center">Executed</span>
                                                 </div>
                                             )}
                                             {log.status === 'Failed' && (
@@ -152,7 +146,6 @@ const Logs_Table = ({ logs, setSelectedRobot, robots, selectedRobot }) => {
                                             )}
                                         </td>
                                         <td className="py-3 px-6 text-center">{log.timestamp}</td>
-                                        <td className="py-3 px-6 text-center">{log.message}</td>
                                     </tr>
                                 ))
                             ) : (

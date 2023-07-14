@@ -31,24 +31,24 @@ export default function Navbar() {
                 } `}
         >
                 <li className="mx-3 my-2 md:m-3">
-                    <a href="/" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
+                    <Link href="/" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
                         Home
-                    </a>
+                    </Link>
                 </li>
                 <li className="mx-3 my-2 md:m-3">
-                    <a href="/partners" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
+                    <Link href="/partners" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
                         Partners
-                    </a>
+                    </Link>
                 </li>
                 <li className="mx-3 my-2 md:m-3">
-                    <a href="/aboutus" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
+                    <Link href="/aboutus" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
                         About Us
-                    </a>
+                    </Link>
                 </li>
                 <li className="mx-3 my-2 md:m-3">
-                    <a href="/download" className="text-gray-500 hover:text-blue-500   transition-all duration-700 font-medium ">
+                    <Link href="/download" className="text-gray-500 hover:text-blue-500   transition-all duration-700 font-medium ">
                         Download <FaDownload className="inline-block align-text-bottom ml-2 mb-1" />
-                    </a>
+                    </Link>
                 </li>
                 <li className="mx-3 my-2 md:m-3 backdrop-blur-sm">
                     <button type="button" className="flex items-center gap-x-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 font-medium transition-all duration-700" 
