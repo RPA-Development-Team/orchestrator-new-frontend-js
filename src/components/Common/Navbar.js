@@ -4,6 +4,7 @@ import { IoMenu } from "react-icons/io5";
 import { useRouter } from "next/router";
 import { BiLogInCircle } from "react-icons/bi";
 import { signIn } from 'next-auth/react';
+import { Link } from 'next/link';
 
 
 export default function Navbar() {
