@@ -4,7 +4,6 @@ import { IoMenu } from "react-icons/io5";
 import { useRouter } from "next/router";
 import { BiLogInCircle } from "react-icons/bi";
 import { signIn } from 'next-auth/react';
-import { Link } from 'next/link';
 
 
 export default function Navbar() {
@@ -32,24 +31,24 @@ export default function Navbar() {
                 } `}
         >
                 <li className="mx-3 my-2 md:m-3">
-                    <Link href="/" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
+                    <a href="/" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
                         Home
-                    </Link>
+                    </a>
                 </li>
                 <li className="mx-3 my-2 md:m-3">
-                    <Link href="/partners" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
+                    <a href="/partners" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
                         Partners
-                    </Link>
+                    </a>
                 </li>
                 <li className="mx-3 my-2 md:m-3">
-                    <Link href="/aboutus" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
+                    <a href="/aboutus" className="text-gray-500 hover:text-blue-500 transition-all duration-700 font-medium">
                         About Us
-                    </Link>
+                    </a>
                 </li>
                 <li className="mx-3 my-2 md:m-3">
-                    <Link href="/download" className="text-gray-500 hover:text-blue-500   transition-all duration-700 font-medium ">
+                    <a href="/download" className="text-gray-500 hover:text-blue-500   transition-all duration-700 font-medium ">
                         Download <FaDownload className="inline-block align-text-bottom ml-2 mb-1" />
-                    </Link>
+                    </a>
                 </li>
                 <li className="mx-3 my-2 md:m-3 backdrop-blur-sm">
                     <button type="button" className="flex items-center gap-x-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 font-medium transition-all duration-700" 
