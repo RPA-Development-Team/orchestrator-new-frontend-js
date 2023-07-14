@@ -3,6 +3,7 @@ import Robots_Table from "./Robots_Table";
 import Footer from "@/components/Common/Footer";
 import { useState, useEffect, useRef } from "react";
 import axios from "../../../../utils/axios";
+import Loader from "@/components/Common/Loader";
 
 const Robots = () => {
     // const robotData = {
@@ -42,7 +43,7 @@ const Robots = () => {
 
     const getRobotData = async () => {
         try {
-            
+
             let res = await axios.get('/api/robots/get');
             console.log(res.data);
             setRobotData(res.data);
@@ -86,17 +87,21 @@ const Robots = () => {
 
 
     if (!robotData) {
-        return <div>Loading...</div>;
+        return (
+            <div className={`mt-10 h-96 w-full flex justify-center items-center`}>
+                <Loader />
+            </div>
+        );
     } else {
         return (
 
             <div ref={featuresRef} style={containerStyle}>
                 <Counters counters={robotData.counters} />
-                <Robots_Table robots={robotData.robots} />
+                <Robots_Table robots={robotData.robots} getRobots={getRobotData} />
                 <Footer />
             </div>
-    
-    
+
+
         );
     }
 };

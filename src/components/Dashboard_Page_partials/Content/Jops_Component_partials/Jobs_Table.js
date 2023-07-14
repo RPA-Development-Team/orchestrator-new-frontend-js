@@ -5,7 +5,7 @@ import { FaSearchengin, FaCircle, FaCheckCircle, FaFileExcel, FaBan, FaTrashAlt,
 import { CSVLink } from 'react-csv';
 import axios from "../../../../utils/axios";
 
-const Jobs_Table = ({ jobs, robots, packages }) => {
+const Jobs_Table = ({ jobs, robots, packages ,getJops }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -46,15 +46,17 @@ const Jobs_Table = ({ jobs, robots, packages }) => {
       }
     };
 
-    console.log(payload);
+    
 
     (async () => {
       try {
         let res = await axios.post('/api/robots/package', payload);
+        getJops();
       } catch (err) {
         console.log(err)
       }
     })();
+
 
     // Close the popup after job creation
     setShowPopup(false);
@@ -116,6 +118,7 @@ const Jobs_Table = ({ jobs, robots, packages }) => {
             (async () => {
               try {
                 let res = await axios.delete(`/api/jobs/delete/${jobId}`, payload);
+                getJops();
               } catch (err) {
                 console.log(err)
               }
@@ -149,6 +152,7 @@ const Jobs_Table = ({ jobs, robots, packages }) => {
             (async () => {
               try {
                 let res = await axios.get(`/api/jobs/cancel/${jobId}`, payload);
+                getJops();
               } catch (err) {
                 console.log(err)
               }
@@ -178,6 +182,7 @@ const Jobs_Table = ({ jobs, robots, packages }) => {
             (async () => {
               try {
                 let res = await axios.get(`/api/jobs/force/${jobId}`);
+                getJops();
               } catch (err) {
                 console.log(err)
               }
@@ -196,7 +201,7 @@ const Jobs_Table = ({ jobs, robots, packages }) => {
 
   return (
     <div>
-      <div className="bg-white p-4 m-4 rounded-lg " style={{ height: '80vh' }}>
+      <div className="bg-white p-4 m-4 rounded-lg " style={{ minHeight: '80vh' }}>
         <div className="flex flex-col md:flex-row md:justify-between mb-2 items-center ">
           <p className="mb-2 text-3xl text-gray-500">Jobs</p>
           <div className="flex  justify-end p-2">
