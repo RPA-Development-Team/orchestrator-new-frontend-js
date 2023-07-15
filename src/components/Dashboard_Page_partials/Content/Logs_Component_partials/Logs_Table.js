@@ -126,19 +126,19 @@ const Logs_Table = ({ logs, setSelectedRobot, robots, selectedRobot }) => {
                                         <td className="py-3 px-6 text-center">[{log.logType}]</td>
                                         <td className="py-3 px-6 text-center">{log.name}</td>
                                         <td className="py-3 px-6 text-center">
-                                            {log.status.toLowerCase() == 'running' && (
+                                            {log.status == 'Executing' && (
                                                 <div className="flex items-center justify-center">
                                                     <FaCircle size={16} className="text-yellow-500 mr-2" />
                                                     <span className="text-yellow-500 font-bold text-center">Running</span>
                                                 </div>
                                             )}
-                                            {log.status.toLowerCase() == 'executed' && (
+                                            {log.status == 'Closed' && (
                                                 <div className="flex items-center justify-center">
                                                     <FaCheckCircle size={16} className="text-green-500 mr-2" />
                                                     <span className="text-green-500 font-bold text-center">Executed</span>
                                                 </div>
                                             )}
-                                            {log.status.toLowerCase() == 'failed' && (
+                                            {log.status == 'Failed' && (
                                                 <div className="flex items-center justify-center">
                                                     <FaBan size={16} className="text-red-500 mr-1" />
                                                     <span className="text-red-500 font-semibold text-center">Failed</span>
